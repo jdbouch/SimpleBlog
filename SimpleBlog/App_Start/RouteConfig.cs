@@ -12,19 +12,19 @@ namespace SimpleBlog
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            var namespaces = new[] { typeof(PostsController).Namespace};
+            var namespacepost = new[] { typeof(PostsController).Namespace };
+            //var namespaceauth = new { typeof(AuthController).Namespace };
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("Login",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Auth", action = "Login", id = "namespaces" }
-
-            );
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Posts", action = "Index", id = "namespaces" }
+                "Login",
+                //url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Auth", action = "Login" }
+                );
+            routes.MapRoute("Home", "",
+                new { controller = "Posts", action = "Index" }, 
+                namespaces :new [] {"SimpleBlog.Areas.PostController"}
             );
         }
     }

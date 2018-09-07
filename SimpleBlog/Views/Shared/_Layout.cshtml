@@ -1,0 +1,21 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+       <header>
+           <h2>The is the SimpleBlog Layout Page</h2>
+           <h1>
+               <a href="@Url.RouteUrl("home")">Simple Blog</a>
+           </h1>
+           <a href="@Url.RouteUrl("login")">Login here</a>
+       </header>
+        @RenderBody()
+    </div>
+</body>
+</html>

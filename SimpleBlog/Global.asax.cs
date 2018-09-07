@@ -13,6 +13,7 @@ namespace SimpleBlog
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ControllerBuilder.Current.DefaultNamespaces.Add("SimpleBlog.Controllers");
         }
     }
 }
