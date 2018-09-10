@@ -22,6 +22,11 @@ namespace SimpleBlog
                 //url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Auth", action = "Login" }
                 );
+            routes.MapRoute("Logout",
+                "Logout",
+                //url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Auth", action = "Logout" }
+                );
             routes.MapRoute("Home", "",
                 new { controller = "Posts", action = "Index" }, 
                 namespaces :new [] {"SimpleBlog.Areas.PostController"}

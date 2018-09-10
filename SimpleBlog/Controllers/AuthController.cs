@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using SimpleBlog.ViewModels;
 
 namespace SimpleBlog.Controllers
 {
     public class AuthController : Controller
     {
+
         // GET: Auth
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToRoute("home");
+        }
         public ActionResult Login()
         {
             return View(new AuthLogin
@@ -19,17 +26,16 @@ namespace SimpleBlog.Controllers
         }
         // POST: authLogin using Form
         [HttpPost]
-        public ActionResult Login(AuthLogin form)
+        public ActionResult Login(AuthLogin form, string returnurl)
         {
             if (!ModelState.IsValid)
                 return View(form);
-            
-            if (form.Username != "rainbow dash")
-            {
-                ModelState.AddModelError("Username", "user name or password is not valid");
-                    return View(form);
-            }
-            return Content("The form is valid");
+
+            FormsAuthentication.SetAuthCookie(form.Username, true); 
+            if (!string.IsNullOrWhiteSpace(returnurl))
+                return Redirect(returnurl);
+
+            return RedirectToRoute("home");
         }
     }
 }

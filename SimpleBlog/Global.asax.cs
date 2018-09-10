@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
+using SimpleBlog.App_Start;
 
 namespace SimpleBlog
 {
@@ -14,6 +16,8 @@ namespace SimpleBlog
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ControllerBuilder.Current.DefaultNamespaces.Add("SimpleBlog.Controllers");
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+           
         }
     }
 }
