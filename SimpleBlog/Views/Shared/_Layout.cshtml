@@ -1,10 +1,13 @@
 ﻿@using System.Web.Optimization
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title = SimpleBlog</title>
     <script src="https://use.fontawesome.com/614598b0a6.js"></script>
     @Styles.Render("~/styles")
 </head>
@@ -23,9 +26,9 @@
                 <a href="@Url.RouteUrl("logout")">Logout</a>
 
                 @*if (User.IsInRole("admin"))
-                {
-                    <a href="@Url.Action("Index", "Posts", new(AreaReference="Admin"))">View posts in Admin</a>
-                }*@
+                    {
+                        <a href="@Url.Action("Index", "Posts", new(AreaReference="Admin"))">View posts in Admin</a>
+                    }*@
             }
             else
             {

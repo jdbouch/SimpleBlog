@@ -13,6 +13,7 @@ namespace SimpleBlog.App_Start
 
             bundles.Add(new StyleBundle("~/styles")
                .Include("~/content/styles/bootstrap.css")
+               //.Include("~/content/styles/signin.css")
                .Include("~/content/styles/site.css"));
 
             bundles.Add(new ScriptBundle("~/admin/scripts")

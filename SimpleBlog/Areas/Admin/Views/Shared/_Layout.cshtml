@@ -1,0 +1,43 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using System.Web.Optimization
+@using System.Web.Mvc.Html
+@{
+    Layout = null;
+}
+
+@helper SelectedTabClass(string tabName) {
+    if (tabName == ViewBag.SelectedTab)
+    {
+    @: active
+    }
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SimpleBlog Admin</title>
+    <script src="https://use.fontawesome.com/614598b0a6.js"></script>
+    @Styles.Render("~/admin/styles")
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-pills">
+         <li class="@SelectedTabClass("posts") nav-item nav-link">
+            @Html.ActionLink("Posts", "index", "Posts", new { area = "admin" }, new { })
+        </li>
+        <li class="@SelectedTabClass("users") nav-item nav-link">
+            @Html.ActionLink("Users", "index", "Users", new { area = "admin" }, new { })
+        </li>
+        <li class="nav-item nav-link">
+            @Html.RouteLink("Back to website", "home")
+        </li>
+        </ul>
+            @RenderBody()
+         
+        @* @RenderSection("Scripts", false)*@
+    </div>
+</body>
+    @Scripts.Render("~/admin/scripts")      
+</html>
