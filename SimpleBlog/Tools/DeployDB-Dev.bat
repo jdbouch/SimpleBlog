@@ -1,0 +1,1 @@
+..\..\packages\FluentMigrator.Tools.3.1.3\net461\x64\Migrate.exe /db=mysql /target ..\SimpleBlog\bin\SimpleBlog.dll /configPath=..\Web.Config -c=MainDb
